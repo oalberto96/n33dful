@@ -1,0 +1,17 @@
+{% extends 'main/login_home.html' %}
+
+{% block login %}
+      <h1>El sistema</h1>
+      {% if form.errors %}
+        <p> Te equivocaste jeje</p>
+      {% endif %}
+      <form role="form" method="post" action="{% url 'solicitud_login' %}">
+        {% csrf_token %}
+        <p> Usuario </p>
+        <input type="text" name="username">
+        <p>Contrasena</p>
+        <input type="password" name="password">
+        <input type="submit" value="login"/>
+      </form>
+{% endblock login %}
+

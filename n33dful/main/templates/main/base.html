@@ -1,0 +1,26 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+      <header>
+        <ul>
+          <li> Acerca de</li>
+          <li> Contacto</li>
+          {% if user.is_authenticated %}
+            <li><a href="{% url 'n33dful_logout' %}">Salir</a></li>
+          {% else %}
+            <li><a href="{% url 'n33dful_login' %}">Iniciar sesion</a></li>
+          {% endif %}
+        </ul>
+      <header>
+      <h1>El sistema</h1>
+      {% if user.is_authenticated %}
+        <p> Holi {{user.username}}</p>
+      {% else %}
+        <p>Beinvenudi a n33dful</p>
+        <a href="{% url 'n33dful_login' %}">Entra aqui broda</a>
+      {% endif %}
+    </body>
+</html>
